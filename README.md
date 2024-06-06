@@ -53,6 +53,38 @@ Now you're able to apply the next command to clone the repo's project in your wo
 git clone git@github.com:homecu/BlossomIntegrationsHub.git
 ```
 
+## Instructions : set the enviornment variables.
+
+Use the follow structure to set the `.env` file, please notice to avoid skip any of these.
+```bash
+SECURITY_GROUP_IDS= <SECURITY_GROUP_IDS>
+SUBNET_IDS=<SUBNET_IDS>
+DEV_AWS_ACCESS_KEY_ID=<DEV_AWS_ACCESS_KEY_ID>
+DEV_AWS_SECRET_ACCESS_KEY=<DEV_AWS_SECRET_ACCESS_KEY>
+AWS_REGION=<AWS_REGION>
+STAGE=<STAGE>
+DOMAIN=<DOMAIN>
+BUCKET_DEPLOY=<BUCKET_DEPLOY>
+SECRET_CREDENTIAL_HOMECU=<SECRET_CREDENTIAL_HOMECU>
+SECRET_CREDENTIAL_BLOSSOM=<SECRET_CREDENTIAL_BLOSSOM>
+SECRET_AUTH_FIS_EZCARD=<SECRET_AUTH_FIS_EZCARD>
+URL_SOAP_ACTION_BLUE_POINT=<URL_SOAP_ACTION_BLUE_POINT>
+URL_RDC=<URL_RDC>
+URL_IMSI=<URL_IMSI>
+SECRET_AUTH_MONEY_DESKTOP=<SECRET_AUTH_MONEY_DESKTOP>
+SECRET_AUTH_CARD_CASH=<SECRET_AUTH_CARD_CASH>
+SECRET_NAME_AUTH_TRANZCAPTURE=<SECRET_NAME_AUTH_TRANZCAPTURE>
+URL_TRANZCAPTURE_LOGIN=<URL_TRANZCAPTURE_LOGIN>
+URL_TRANZCAPTURE_API=<URL_TRANZCAPTURE_API>
+RDC_SQS=<RDC_SQS>
+SEQ_DB=<SEQ_DB>
+SEQ_PORT=<SEQ_PORT>
+SEQ_HOST=<SEQ_HOST>
+SEQ_HOST_READ=<SEQ_HOST_READ>
+SEQ_USER=<SEQ_USER>
+SEQ_PW=<SEQ_PW>
+```
+
  ## Set up for compile project.
 
 With the idea to compile all the requirements please install `nvm` library with the next command:
@@ -102,3 +134,8 @@ Once you update `.zshrc` file saving the changes, please run the next command li
 ```bash
 source ~/.zshrc
 ```
+
+For run the project you can use `npm run offline` command.
+
+
+
