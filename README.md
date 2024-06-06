@@ -54,3 +54,51 @@ git clone git@github.com:homecu/BlossomIntegrationsHub.git
 ```
 
  ## Set up for compile project.
+
+With the idea to compile all the requirements please install `nvm` library with the next command:
+
+```bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
+```
+Install the `serverless` package with:
+
+```bash
+npm i - D @types/serverless
+```
+To configure the enviornment to use `nvm use` automatically, we need to add to `.zshrc` file the next script, please access to this file using `nano ~/.zshrc` then scroll until the end of the file and paste the next code:
+
+
+- **Note**: If LDFLAGS exist just comment with *#* and use the version that is indicate next.
+
+```bash
+export LDFLAGS="-L/opt/homebrew/opt/openssl@3/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/openssl@3/include"
+
+# Auto-load .nvmrc
+autoload -U add-zsh-hook
+
+load-nvmrc() {
+  local node_version="$(nvm version)"
+  local nvmrc_path="$(nvm_find_nvmrc)"
+
+  if [ -n "$nvmrc_path" ]; then
+    local nvmrc_node_version=$(cat "$nvmrc_path")
+    if [ "$nvmrc_node_version" = "lts/*" ]; then
+      nvmrc_node_version="$(nvm version-remote --lts)"
+    fi
+    if [ "$nvmrc_node_version" != "$node_version" ]; then
+      nvm install "$nvmrc_node_version"
+    fi
+  elif [ "$node_version" != "$(nvm version default)" ]; then
+    echo "Reverting to nvm default version"
+    nvm use default
+  fi
+}
+
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
+```
+Once you update `.zshrc` file saving the changes, please run the next command line to load the project's require version for node.
+```bash
+source ~/.zshrc
+```
